@@ -1,5 +1,5 @@
 //PASTE ME into your browser's console
-
+//press "u" to trigger
 window.addEventListener("keydown", checkKeyPressed, false);
 var uStyle = document.createElement('style');
 uStyle.type = 'text/css';
@@ -16,15 +16,12 @@ function checkKeyPressed(e) {
     var unicorn = document.createElement('img');
     unicorn.className = 'uImage';
     unicorn.src = 'https://ssl.gstatic.com/chat/babble/ee/' + i + '.gif';
-    unicorn.alt = 'unicorn' + i;
-    console.log(unicorn.alt, i);
+    unicorn.alt = 'unicorn:' + i;
+    console.log(unicorn.alt);
     document.body.appendChild(unicorn);
-
 
     setTimeout(function() {
       document.body.removeChild(unicorn);
     }, 8000); //match the '8s' in the innerHTML
   }
-
-
 }
