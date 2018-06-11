@@ -1,0 +1,28 @@
+window.addEventListener("keydown", checkKeyPressed, false);
+var uStyle = document.createElement('style');
+uStyle.type = 'text/css';
+uStyle.innerHTML =
+  '.uImage{transform:scaleX(-1); animation:float-by 8s ease-in-out; position:fixed;top:300px;z-index:10000}@keyframes float-by{from{left:-50%}to{left:120%}}';
+document.head.appendChild(uStyle);
+
+function checkKeyPressed(e) {
+  if (e.keyCode == "85") {
+    console.log("Easter Egg Found!!");
+
+    var arr = ['af', 'cs', 'dg', 'bm', 'cc', 'dl', 'ib', 'jl', 'km', 'kr', 'cc', 'ib', 'mk', 'mt', 'mu', 'ni', 'rs', 'tj', 'zf']
+    var i = arr[Math.floor(Math.random() * arr.length)];
+    var unicorn = document.createElement('img');
+    unicorn.className = 'uImage';
+    unicorn.src = 'https://ssl.gstatic.com/chat/babble/ee/' + i + '.gif';
+    unicorn.alt = 'unicorn' + i;
+    console.log(unicorn.alt, i);
+    document.body.appendChild(unicorn);
+
+
+    setTimeout(function() {
+      document.body.removeChild(unicorn);
+    }, 8000); //match the '8s' in the innerHTML
+  }
+
+
+}
